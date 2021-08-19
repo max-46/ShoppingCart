@@ -65,11 +65,11 @@ public class Cart {
         int[] dimensions = new int[]{100, 5, 30};
         c.addProduct(new TangibleProduct("Sony TV", 12000, 2000, 20, dimensions));
         
-        Product p = new TangibleProduct("Anker Wireless Headphones", 8000, 500, 40, new int[]{10, 10, 10});
-        c.addProduct(p);
+        Product awh = new TangibleProduct("Anker Wireless Headphones", 8000, 500, 40, new int[]{10, 10, 10});
+        c.addProduct(awh);
         
         c.printProductsAndInfo();
-        c.removeProduct(p);
+        c.removeProduct(awh);
         c.printProductsAndInfo();
         
         Product hkm = new TangibleProduct("Hello Kitty Mug", 200, 0, 2000, new int[]{10, 10, 10});
