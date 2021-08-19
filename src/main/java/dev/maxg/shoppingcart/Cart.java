@@ -29,12 +29,20 @@ public class Cart {
         this.products = products;
     }
 
-    public void addProduct(Product product) {
-        products.add(product);
+    public boolean addProduct(Product product) {
+        int numAvailable = product.getNumAvailable();
+        if (numAvailable > 0) {
+            products.add(product);
+            product.setNumAvailable(numAvailable--);
+            return true;
+        }
+        return false;
     }
 
     public void removeProduct(Product product) {
+        int numAvailable = product.getNumAvailable();
         products.remove(product);
+        product.setNumAvailable(numAvailable++);
     }
 
     public BigDecimal totalPrice() {
@@ -52,10 +60,10 @@ public class Cart {
 
     public static void main(String[] args) {
         Cart c = new Cart();
-        c.addProduct(new Product("iTunes Giftcard", 10000));
+        c.addProduct(new Product("iTunes Giftcard", 10000, 100));
         int[] dimensions = new int[]{100, 5, 30};
-        c.addProduct(new TangibleProduct("Sony TV", 12000, 2000, dimensions));
-        Product p = new TangibleProduct("Anker Wireless Headphones", 8000, 500, new int[]{10, 10, 10});
+        c.addProduct(new TangibleProduct("Sony TV", 12000, 2000, 20, dimensions));
+        Product p = new TangibleProduct("Anker Wireless Headphones", 8000, 500, 40, new int[]{10, 10, 10});
         c.addProduct(p);
         c.printProductsAndInfo();
         c.removeProduct(p);

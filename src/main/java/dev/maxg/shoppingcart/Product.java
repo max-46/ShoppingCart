@@ -17,11 +17,13 @@ public class Product {
     private final int id;
     private String name;
     private int price;
+    private int numAvailable;
 
-    public Product(String name, int price) {
+    public Product(String name, int price, int numAvailable) {
         this.id = idNum++;
         this.name = name;
         this.price = price;
+        this.numAvailable = numAvailable;
     }
 
     public int getPrice() {
@@ -38,6 +40,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNumAvailable() {
+        return numAvailable;
+    }
+
+    public void setNumAvailable(int numAvailable) {
+        this.numAvailable = numAvailable;
     }
 
     @Override

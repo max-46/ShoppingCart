@@ -14,8 +14,8 @@ public class TangibleProduct extends Product {
     private int weight;
     private int[] dimensions;
 
-    public TangibleProduct(String name, int price, int weight, int[] dimensions) {
-        super(name, price);
+    public TangibleProduct(String name, int price, int numAvailable, int weight, int[] dimensions) {
+        super(name, price, numAvailable);
         this.weight = weight;
         this.setDimensions(dimensions);
     }
