@@ -55,6 +55,10 @@ public class Cart {
         c.addProduct(new Product("iTunes Giftcard", 10000));
         int[] dimensions = new int[]{100, 5, 30};
         c.addProduct(new TangibleProduct("Sony TV", 12000, 2000, dimensions));
+        Product p = new TangibleProduct("Anker Wireless Headphones", 8000, 500, new int[]{10, 10, 10});
+        c.addProduct(p);
+        c.printProductsAndInfo();
+        c.removeProduct(p);
         c.printProductsAndInfo();
     }
 }

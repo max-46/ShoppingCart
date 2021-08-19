@@ -10,16 +10,14 @@ package dev.maxg.shoppingcart;
  * @author max
  */
 public class TangibleProduct extends Product {
+
     private int weight;
     private int[] dimensions;
 
-    public TangibleProduct(String name, int price, int weight, int[] dimensions) throws IllegalArgumentException {
+    public TangibleProduct(String name, int price, int weight, int[] dimensions) {
         super(name, price);
         this.weight = weight;
-        if (dimensions.length != 3) {
-            throw new IllegalArgumentException("dimensions must be [length, width, height]");
-        }
-        this.dimensions = dimensions;
+        this.setDimensions(dimensions);
     }
 
     public int getWeight() {
@@ -34,10 +32,11 @@ public class TangibleProduct extends Product {
         return dimensions;
     }
 
-    public void setDimensions(int[] dimensions) {
+    public final void setDimensions(int[] dimensions) {
+        if (dimensions.length != 3) {
+            throw new IllegalArgumentException("dimensions must be [length, width, height]");
+        }
         this.dimensions = dimensions;
     }
-    
-    
-    
+
 }

@@ -5,14 +5,16 @@
  */
 package dev.maxg.shoppingcart;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author max
  */
 public class Product {
-    
+
     private static int idNum = 0;
-    private int id;
+    private final int id;
     private String name;
     private int price;
 
@@ -30,13 +32,18 @@ public class Product {
         this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
+        return "Product: " + "id=" + id + ", name=" + name + ", price=£"
+                + new BigDecimal(price / 100).setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
-    
-    
-    
-    
-    
+
 }
