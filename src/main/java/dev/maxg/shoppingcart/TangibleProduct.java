@@ -5,6 +5,8 @@
  */
 package dev.maxg.shoppingcart;
 
+import java.util.Arrays;
+
 /**
  *
  * @author max
@@ -38,5 +40,15 @@ public class TangibleProduct extends Product {
         }
         this.dimensions = dimensions;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", weight=" + weight + "g" + ", dimensions=" + 
+                Arrays.stream(dimensions)
+                        .mapToObj(String::valueOf)
+                        .reduce("", (a, b) -> a + b + "cm ");
+    }
+    
+    
 
 }
